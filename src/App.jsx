@@ -7,6 +7,7 @@ import ProductDetail from "../src/Pages/User/ProductDetail";
 import Us from "../src/Pages/User/us";
 import Carrito from "./Pages/User/Cart";
 import Blog from '../src/Pages/User/Blogs';
+import ProductsCRUD from '../src/Pages/Admin/ProductsCRUD';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/cart" element={<Carrito />}></Route>
           <Route path="/us" element={<Us />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
+          <Route path="/admin/products" element={<ProductsCRUD />}></Route>
         </Routes>
       </main>
       <Footer />

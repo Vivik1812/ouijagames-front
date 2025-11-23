@@ -7,3 +7,19 @@
     box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.63) !important;
     background-color: rgb(243, 243, 243)
 }
+
+.product-create{
+    border: 10px solid rgba(5, 132, 5, 0.673) !important;
+        transition: transform .3s ease, box-shadow .3 ease;
+
+    .btn{
+        background-color: green;
+    }
+    
+}
+
+.product-create:hover{
+transform: translateY(-8px) scale(1.03);
+    box-shadow: 2px 2px 15px 2px rgba(35, 196, 6, 0.805) !important;
+    background-color: rgb(243, 243, 243)
+}

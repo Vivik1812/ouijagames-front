@@ -15,6 +15,8 @@ function ProductCard({
   isCart,
   count,
   isResumenCart,
+  isAdmin,
+  onClick,
 }) {
   const agregarCarrito = () => {
     const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
@@ -67,12 +69,56 @@ function ProductCard({
       </>
     );
   }
-  if(isResumenCart){
-    return(
+  if (isResumenCart) {
+    return (
       <>
-        <CardResumen/>
+        <CardResumen />
       </>
-    )
+    );
+  }
+  if (isAdmin) {
+    return (
+      <>
+        <Card
+          style={{ width: w }}
+          className={
+            animate ? "m-5 p-3 text-center card-animate" : "m-5 p-3 text-center"
+          }
+        >
+            <Image
+              src={product.img}
+              alt={product.name}
+              className="card-img-top h-75"
+            />
+          <Card.Body>
+            <CardBody
+              name={product.name}
+              description={isDescription ? product.description : ""}
+              price={product.price}
+              src={product.img}
+            />
+          </Card.Body>
+          <Row>
+            <Col>
+              <Button
+                variant="outline-warning"
+                onClick={onClick ? onClick : agregarCarrito}
+              >
+                {"Editar"}
+              </Button>
+            </Col>
+            <Col>
+              <Button
+                variant="outline-danger"
+                onClick={onClick ? onClick : agregarCarrito}
+              >
+                {"Eliminar"}
+              </Button>
+            </Col>
+          </Row>
+        </Card>
+      </>
+    );
   }
   return (
     <>
@@ -98,7 +144,7 @@ function ProductCard({
           />
         </Card.Body>
         <Button variant="dark" onClick={agregarCarrito}>
-          Agregar
+          {"Agregar"}
         </Button>
       </Card>
     </>
