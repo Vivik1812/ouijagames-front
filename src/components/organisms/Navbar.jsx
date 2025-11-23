@@ -1,9 +1,6 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { MdOutlineShoppingCart } from 'react-icons/md';
-import { FaCat } from 'react-icons/fa';
-import { FaDog } from 'react-icons/fa';
 import { GiRamProfile } from "react-icons/gi";
-import { GiPoolTriangle } from "react-icons/gi";
 
 
 function NavBar() {

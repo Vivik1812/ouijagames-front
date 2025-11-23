@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/organisms/Navbar';
+import Footer from './components/organisms/Footer';
 import HomeUser from '../src/Pages/User/Home';
 import Products from '../src/Pages/User/Products';
 import ProductDetail from '../src/Pages/User/ProductDetail';
@@ -20,6 +21,7 @@ function App() {
           <Route path="/carrito" element={<Carrito/>}></Route> */}
         </Routes>
       </main>
+      <Footer/>
     </>
   );
 }

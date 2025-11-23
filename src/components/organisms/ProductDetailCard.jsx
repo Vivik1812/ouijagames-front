@@ -46,7 +46,9 @@ function ProductDetailCard({ product, isDescription, w }) {
           </Col>
           <Col className="col-6">
             <Card.Body>
+              
               <CardBody
+              
                 name={product.name}
                 description={isDescription ? product.description : ""}
                 price={product.price}
@@ -56,7 +58,6 @@ function ProductDetailCard({ product, isDescription, w }) {
                 stock = {product.stock}
               />
             </Card.Body>
-            <Button variant="dark">Agregar</Button>
           </Col>
         </Row>
       </Card>
