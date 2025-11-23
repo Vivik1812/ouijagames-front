@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
-import ProductCard from "../../organisms/ProductCard";
+import ProductCard from '../../components/organisms/ProductCard'
 import ProductService from "../../services/ProductService";
 import CategoryService from "../../services/CategoryService";
-import Carousel from "../../organisms/Carousel";
-import Label from "../../molecules/Label";
+import Carousel from "../../components/organisms/Carousel";
+import Label from "../../components/molecules/Label";
 
 const HomeUser = () => {
   const [products, setProduct] = useState([]);
@@ -55,6 +55,7 @@ const HomeUser = () => {
                   key={product.id}
                   product={product}
                   isDescription={false}
+                  w={"20rem"}
                 />
               ))}
           </div>

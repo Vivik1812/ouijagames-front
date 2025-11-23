@@ -1,6 +1,6 @@
 import Carousel from "react-bootstrap/Carousel";
 import Image from '../atoms/Image'
-import CarouselImages from "../data/CarouselImgs";
+import CarouselImages from "../../data/CarouselImgs";
 
 function CarouselProduct() {
     
