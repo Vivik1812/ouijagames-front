@@ -8,10 +8,10 @@ import Label from "../../components/molecules/Label";
 import Breadcrumbb from "../../components/organisms/Breadcrumb";
 import Dropdownn from '../../components/organisms/Dropdown'
 
+
 const Products = () => {
   const [products, setProduct] = useState([]);
-  //   const [categories, setCategory] = useState([]);
-
+  
   const fetchProduct = () => {
     ProductService.getAllProducts()
       .then((response) => {
@@ -24,19 +24,6 @@ const Products = () => {
   useEffect(() => {
     fetchProduct();
   }, []);
-
-  //   const fetchCategory = () => {
-  //     CategoryService.getAllCategories()
-  //       .then((response) => {
-  //         setCategory(response);
-  //       })
-  //       .catch((error) => {
-  //         console.log("Error fetching categorys", error);
-  //       });
-  //   };
-  //   useEffect(() => {
-  //     fetchCategory();
-  //   }, []);
 
   return (
     <Container>
@@ -53,10 +40,11 @@ const Products = () => {
       <Row className="justify-content-center">
         {products.map((product) => (
           <ProductCard
+            className="card-animate"
             key={product.id}
             product={product}
-            isDescription={false}
             w={"20rem"}
+            animate={true}
           />
         ))}
       </Row>

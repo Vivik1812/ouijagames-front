@@ -13,7 +13,7 @@ import { GiRamProfile } from "react-icons/gi";
 function Footer() {
   return (
     <Navbar bg="black" variant="dark">
-      <Container>
+      <Container id="footer">
         <Stack>
           <Row className="p-1">
             <Col>
