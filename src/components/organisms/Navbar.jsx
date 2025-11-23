@@ -15,10 +15,10 @@ function NavBar() {
                         <Nav.Link href="/products">Productos</Nav.Link>
                         <Nav.Link href="/us">Nosotros</Nav.Link>
                         <Nav.Link href="#footer">Contactanos</Nav.Link>
-                        <Nav.Link href="#">Blog</Nav.Link>
+                        <Nav.Link href="/blog">Blog</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href='/'><GiRamProfile size={'1.5rem'}/></Nav.Link>
+                        <Nav.Link href='#'><GiRamProfile size={'1.5rem'}/></Nav.Link>
                         <Nav.Link href='/cart'><MdOutlineShoppingCart size={'1.5rem'}/></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

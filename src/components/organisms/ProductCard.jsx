@@ -79,7 +79,7 @@ function ProductCard({
       <Card
         style={{ width: w }}
         className={
-          animate ? "m-4 p-3 text-center card-animate" : "m-4 p-3 text-center"
+          animate ? "m-5 p-3 text-center card-animate" : "m-5 p-3 text-center"
         }
       >
         <Link to={`/products/${product.id}`} className="h-100">

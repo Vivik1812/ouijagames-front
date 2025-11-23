@@ -6,6 +6,7 @@ import Products from "../src/Pages/User/Products";
 import ProductDetail from "../src/Pages/User/ProductDetail";
 import Us from "../src/Pages/User/us";
 import Carrito from "./Pages/User/Cart";
+import Blog from '../src/Pages/User/Blogs';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Carrito />}></Route>
           <Route path="/us" element={<Us />}></Route>
+          <Route path="/blog" element={<Blog />}></Route>
         </Routes>
       </main>
       <Footer />

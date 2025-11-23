@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
-import ProductCard from '../../components/organisms/ProductCard'
+import ProductCard from "../../components/organisms/ProductCard";
 import ProductService from "../../services/ProductService";
 import CategoryService from "../../services/CategoryService";
 import Carousel from "../../components/organisms/Carousel";
@@ -36,9 +36,6 @@ const HomeUser = () => {
     fetchCategory();
   }, []);
 
-  console.log(categories);
-  console.log(products);
-
   return (
     <Container>
       <Carousel />
@@ -47,17 +44,19 @@ const HomeUser = () => {
         {categories.map((category) => (
           <div key={category.id}>
             <Label key={category.id} categoria={category.descripcion} />
-
-            {products
-              .filter((product) => product.categoria.id === category.id)
-              .map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  isDescription={false}
-                  w={"20rem"}
-                />
-              ))}
+            <Row>
+              {products
+                .filter((product) => product.categoria.id === category.id)
+                .map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      product={product}
+                      isDescription={false}
+                      animate={true}
+                      w={"20rem"}
+                    />
+                ))}
+            </Row>
           </div>
         ))}
       </Row>

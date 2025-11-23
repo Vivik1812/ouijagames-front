@@ -6,12 +6,11 @@ import CategoryService from "../../services/CategoryService";
 import Carousel from "../../components/organisms/Carousel";
 import Label from "../../components/molecules/Label";
 import Breadcrumbb from "../../components/organisms/Breadcrumb";
-import Dropdownn from '../../components/organisms/Dropdown'
-
+import Dropdownn from "../../components/organisms/Dropdown";
 
 const Products = () => {
   const [products, setProduct] = useState([]);
-  
+
   const fetchProduct = () => {
     ProductService.getAllProducts()
       .then((response) => {
@@ -30,22 +29,20 @@ const Products = () => {
       <h2>Productos</h2>
       <Breadcrumbb />
       <Row className="p-1">
-        <Col>
-
-        </Col>
+        <Col></Col>
         <Col className="text-lg-end">
-            <Dropdownn/>
+          <Dropdownn />
         </Col>
       </Row>
       <Row className="justify-content-center">
         {products.map((product) => (
-          <ProductCard
-            className="card-animate"
-            key={product.id}
-            product={product}
-            w={"20rem"}
-            animate={true}
-          />
+            <ProductCard
+              className="card-animate"
+              key={product.id}
+              product={product}
+              w={"20rem"}
+              animate={true}
+            />
         ))}
       </Row>
     </Container>

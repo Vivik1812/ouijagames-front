@@ -3,6 +3,7 @@ import Text from "../atoms/Text";
 import Button from "../atoms/Button";
 import Image from "../atoms/Image";
 import { Container, Col, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function CardBody({
   name,
@@ -11,7 +12,8 @@ function CardBody({
   isDetail,
   category,
   stock,
-  isCart
+  isCart,
+  isBlog
 }) {
   const isStock = stock > 0 ? "En Stock" : "Sin stock";
   const className =
@@ -68,6 +70,19 @@ function CardBody({
           </Text>
         </Container>
       </>
+    );
+  }
+  if (isBlog) {
+    return (
+      <Container>
+        <Text variant="h2" className="p-3 m-auto">
+          {name}
+        </Text>
+        <Text variant="p" className="p-5 m-auto">
+          {description}
+        </Text>
+        
+      </Container>
     );
   }
   return (
