@@ -18,7 +18,7 @@ function NavBar() {
                         <Nav.Link href="/blog">Blog</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href='#'><GiRamProfile size={'1.5rem'}/></Nav.Link>
+                        {/* <Nav.Link href='#'><GiRamProfile size={'1.5rem'}/></Nav.Link> */}
                         <Nav.Link href='/cart'><MdOutlineShoppingCart size={'1.5rem'}/></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

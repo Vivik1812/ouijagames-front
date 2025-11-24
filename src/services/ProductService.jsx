@@ -17,7 +17,10 @@ class ProductServices{
 
     async postProduct(product){
         try{
-            const response = await Axios.post(URL, product,{
+            const response = await Axios.post(
+                URL,
+                JSON.stringify(product),
+                {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -27,6 +30,17 @@ class ProductServices{
             console.log('Error: ',error)
             throw error;
         }
+    }
+
+    async deleteProduct(id){
+        try{
+            const response = await Axios.delete(`${URL}/${id}`)
+            return response.data
+        }catch(error){
+            console.error("Error:", error);
+            throw error;
+        }
+         
     }
 
 

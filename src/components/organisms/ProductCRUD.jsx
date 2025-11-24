@@ -7,7 +7,7 @@ import "../../styles/organisms/ProductCard.css";
 import CartButtons from "../molecules/CartButtons";
 import CardResumen from "../molecules/CardResumen";
 
-function ProductCard({ product, w, animate }) {
+function ProductCard({ product, w, animate, onClick }) {
   return (
     <>
       <Card
@@ -18,14 +18,17 @@ function ProductCard({ product, w, animate }) {
             : "m-5 p-3 text-center product-create"
         }
       >
-        <Link to={`/products/${product.id}`} className="h-100">
+        <Link to='#' onClick={(e) => {
+          e.preventDefault()
+          onClick()
+        }} className="h-100">
           <Image
             src={product.img}
             alt={product.name}
             className="card-img-top h-75"
           />
         </Link>
-        <Button variant="dark" onClick={''}>
+        <Button variant="dark" onClick={onClick}>
           Agregar
         </Button>
       </Card>

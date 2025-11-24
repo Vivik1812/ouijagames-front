@@ -9,10 +9,11 @@ import Label from "../../components/molecules/Label";
 import Breadcrumbb from "../../components/organisms/Breadcrumb";
 import Dropdownn from "../../components/organisms/Dropdown";
 import ProductZero from "../../data/ProductModel";
-import Form from '../../components/templates/Form'
+import Form from "../../components/templates/Form";
 
 const Products = () => {
   const [products, setProduct] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   const fetchProduct = () => {
     ProductService.getAllProducts()
@@ -26,27 +27,28 @@ const Products = () => {
   useEffect(() => {
     fetchProduct();
   }, []);
-        console.log(ProductZero);
+
+  const openForm = () => setShowForm(true);
+  const closeForm = () => setShowForm(false);
 
   return (
     <Container>
-        <Form/>
       <h2>Productos</h2>
       <Breadcrumbb />
-      <Row className="p-1">
-        <Col></Col>
-        <Col className="text-lg-end">
-          <Dropdownn />
-        </Col>
-      </Row>
+
+      {/*Formulario*/}
+      {showForm && <Form onClose={closeForm} />}
+
       <Row className="justify-content-center">
-        
-        <ProductCRUD
-          className="product-create"
-          key={ProductZero[0].id}
-          product={ProductZero[0]}
-          w={"20rem"}
-        />
+        {!showForm && (
+          <ProductCRUD
+            className="product-create"
+            key={ProductZero[0].id}
+            product={ProductZero[0]}
+            w={"20rem"}
+            onClick={openForm}
+          />
+        )}
         {products.map((product) => (
           <ProductCard
             className="card-animate"
@@ -55,6 +57,9 @@ const Products = () => {
             w={"20rem"}
             animate={true}
             isAdmin={true}
+            onDelete={(id) => {
+              setProduct((prev) => prev.filter((p) => p.id !== id));
+            }}
           />
         ))}
       </Row>

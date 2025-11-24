@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "../../styles/organisms/ProductCard.css";
 import CartButtons from "../molecules/CartButtons";
 import CardResumen from "../molecules/CardResumen";
+import ProductService from "../../services/ProductService";
 
 function ProductCard({
   product,
@@ -16,8 +17,29 @@ function ProductCard({
   count,
   isResumenCart,
   isAdmin,
-  onClick,
+  onDelete
 }) {
+
+  const eliminarProduct = async () => {
+    try{
+      const confirm = window.confirm(
+        'Eliminar?'
+      )
+      if(!confirm) return;
+      await ProductService.deleteProduct(product.id)
+      alert('Producto eliminado con exito')
+
+      if(onDelete){
+        onDelete(product.id)
+      }
+
+    }catch(error){
+      console.error("Error al eliminar",error);
+      alert("Error al eliminar")
+      
+    }
+  }
+
   const agregarCarrito = () => {
     const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
 
@@ -98,24 +120,12 @@ function ProductCard({
               src={product.img}
             />
           </Card.Body>
-          <Row>
-            <Col>
-              <Button
-                variant="outline-warning"
-                onClick={onClick ? onClick : agregarCarrito}
-              >
-                {"Editar"}
-              </Button>
-            </Col>
-            <Col>
               <Button
                 variant="outline-danger"
-                onClick={onClick ? onClick : agregarCarrito}
+                onClick={eliminarProduct}
               >
                 {"Eliminar"}
               </Button>
-            </Col>
-          </Row>
         </Card>
       </>
     );
