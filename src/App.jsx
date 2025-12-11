@@ -12,6 +12,7 @@ import BlogCRUD from "../src/Pages/Admin/BlogCRUD";
 import BlogDetail from "../src/Pages/Admin/BlogDetail";
 import ProductDetailAdmin from "../src/Pages/Admin/ProductDetail";
 import HomeAdmin from "../src/Pages/Admin/Home";
+import Login from "../src/Pages/auth/login"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
       <NavBar />
       <main className="ml my-3">
         <Routes>
-          <Route path="/" element={<HomeUser />} />
+          <Route path="/" element={<HomeUser />} />           
+          <Route path="/login" element={<Login />} />           
           <Route path="/admin" element={<HomeAdmin />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />

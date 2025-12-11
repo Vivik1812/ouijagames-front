@@ -4,35 +4,9 @@ import Image from "../atoms/Image";
 import { Card, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CategoryService from "../../services/CategoryService";
-// import { useState, useEffect } from "react";
 
 function ProductDetailCard({ blog, product, isDescription, w, isAdmin }) {
-  // const [categories, setCategory] = useState([]);
 
-  // const fetchCategory = () => {
-  //   CategoryService.getAllCategories()
-  //     .then((response) => {
-  //       setCategory(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error fetching categorys", error);
-  //     });
-  // };
-  // useEffect(() => {
-  //   fetchCategory();
-  // }, []);
-
-  // const categoria = product.categoria
-  // const id = categoria.id
-
-  // const getCategory = () => {
-  //   const c = categories.find((c) => c.id === parseInt(id));
-  //   if (!c) {
-  //     return "Cargando...";
-  //   }
-  //   return c;
-  // };
-  // const category = getCategory();
   return (
     <>
       <Card style={{ width: w }} className="m-4 p-3 text-center">
