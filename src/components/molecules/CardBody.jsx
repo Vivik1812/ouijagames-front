@@ -13,14 +13,20 @@ function CardBody({
   category,
   stock,
   isCart,
-  isBlog
+  isBlog,
+  isBlogDetail,
+  isProductDetailAdmin,
 }) {
   const isStock = stock > 0 ? "En Stock" : "Sin stock";
   const className =
     stock > 0
       ? "p-2 text-lg-start text-success"
       : "p-2 text-lg-start text-danger";
-
+    
+  
+  console.log(category);
+  
+      
   if (isDetail) {
     return (
       <>
@@ -29,10 +35,10 @@ function CardBody({
             {name}
           </Text>
           <Text variant="h6" className="p-2 text-lg-start text-black-50">
-            Categoria: {category.descripcion}
+            Categoria: {category?.nombre}
           </Text>
           <Text variant="h4" className="p-2 text-lg-start">
-            {price}
+            ${price}
           </Text>
           <Row>
             <Col className="col-3">
@@ -40,11 +46,35 @@ function CardBody({
                 {isStock}
               </Text>
             </Col>
-            <Col className="col-9 text-lg-start">
-              <Button variant="dark">Agregar al carrito</Button>
-            </Col>
+            {isProductDetailAdmin ? (
+              <></>
+            ) : (
+              <Col className="col-9 text-lg-start">
+                <Button variant="dark">Agregar al carrito</Button>
+              </Col>
+            )}
           </Row>
 
+          <Text
+            variant="h5"
+            className="p-3 text-lg-start border-bottom border-black"
+          >
+            Descripcion
+          </Text>
+          <Text variant="p" className="p-3 text-lg-start">
+            {description}
+          </Text>
+        </Container>
+      </>
+    );
+  }
+  if (isBlogDetail) {
+    return (
+      <>
+        <Container>
+          <Text variant="h2" className="p-2 text-lg-start">
+            {name}
+          </Text>
           <Text
             variant="h5"
             className="p-3 text-lg-start border-bottom border-black"
@@ -81,7 +111,6 @@ function CardBody({
         <Text variant="p" className="p-5 m-auto">
           {description}
         </Text>
-        
       </Container>
     );
   }

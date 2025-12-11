@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useState, useEffect } from "react";
 import CategoryService from "../../services/CategoryService";
-import ProductService from "../../services/ProductService";
+import ProductService from "../../services/BlogService";
 
 
 function Formm({ onClose }) {
@@ -14,7 +14,7 @@ function Formm({ onClose }) {
     price: 1,
     stock: 1,
     img: "",
-    categoria: ""
+    categoriaId: 1
   });
 
   {
@@ -41,7 +41,7 @@ function Formm({ onClose }) {
     !product.price ||
     !product.stock ||
     !product.img.trim() ||
-    !product.categoria
+    !product.categoriaId
   ) {
     alert("Completa todos los campos.");
     return;
@@ -53,10 +53,7 @@ function Formm({ onClose }) {
       price: Number(product.price),
       stock: Number(product.stock),
       img: product.img,
-      categoria: {
-        id: Number(product.categoria)
-
-      }
+      categoriaId: Number(product.categoriaId)
     };
 
     try {
