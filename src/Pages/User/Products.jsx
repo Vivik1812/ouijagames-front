@@ -30,9 +30,9 @@ const Products = () => {
       <Breadcrumbb />
       <Row className="p-1">
         <Col></Col>
-        <Col className="text-lg-end">
+        {/* <Col className="text-lg-end">
           <Dropdownn />
-        </Col>
+        </Col> */}
       </Row>
       <Row className="justify-content-center">
         {products.map((product) => (
