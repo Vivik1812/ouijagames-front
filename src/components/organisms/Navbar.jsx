@@ -41,7 +41,7 @@ function NavBar() {
                 <Nav.Link href="/products">Productos</Nav.Link>
                 <Nav.Link href="/us">Nosotros</Nav.Link>
                 <Nav.Link href="#footer">Contactanos</Nav.Link>
-                <Nav.Link href="/blog">Blog</Nav.Link>
+                <Nav.Link href="/blogs">Blog</Nav.Link>
               </>
             )}
 
