@@ -11,7 +11,6 @@ function HorizontalExample() {
   const [roles, setRoles] = useState([]);
   console.log("useAuth:", useAuth());
 
-
   const fetchRoles = () => {
     RolService.getAllRoles()
       .then((response) => {
@@ -61,17 +60,34 @@ function HorizontalExample() {
   }
   const { login } = useAuth();
   const navigate = useNavigate();
-  
-  async function handleLogin(){
-    const user = await UserService.login(email, password);
 
-    if(!user){
-      alert("Credenciales incorrectas")
-      return;
+  async function handleLogin() {
+    try {
+      if (!email || !password) {
+        alert("Por favor completa todos los campos");
+        return;
+      }
+
+      console.log("Intentando login con:", { email });
+
+      const user = await UserService.login(email, password);
+
+      console.log("Respuesta del login:", user);
+
+      if (!user) {
+        alert("Credenciales incorrectas");
+        return;
+      }
+
+      login(user);
+      alert("Inicio de sesión exitoso");
+      navigate("/");
+    } catch (error) {
+      console.error("Error en handleLogin:", error);
+      alert(
+        "Error al iniciar sesión: " + (error.message || "Intenta de nuevo")
+      );
     }
-    
-    login(user);
-    navigate("/");
   }
   return (
     <div
@@ -90,8 +106,8 @@ function HorizontalExample() {
           className="my-5"
           onSubmit={(e) => {
             e.preventDefault();
-            if(isLogin) handleLogin();
-            else register()
+            if (isLogin) handleLogin();
+            else register();
           }}
         >
           {!isLogin && (

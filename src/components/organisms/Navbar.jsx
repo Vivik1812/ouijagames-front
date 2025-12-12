@@ -3,6 +3,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { GiRamProfile } from "react-icons/gi";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Button from "../atoms/Button";
 
 
 function NavBar() {
@@ -38,7 +39,7 @@ function NavBar() {
               <Nav.Link href="/login">
                 {user.username} <GiRamProfile size={"1.4rem"} />
               </Nav.Link>
-              <Button onClick={handleLogout}>Cerrar Sesion</Button>
+              <Button variant={'dark'} onClick={handleLogout}>Cerrar Sesion</Button>
               </>
             ) : (
               <Nav.Link href="/login">
