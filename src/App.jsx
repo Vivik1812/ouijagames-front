@@ -13,6 +13,7 @@ import BlogDetail from "../src/Pages/Admin/BlogDetail";
 import ProductDetailAdmin from "../src/Pages/Admin/ProductDetail";
 import HomeAdmin from "../src/Pages/Admin/Home";
 import Login from "../src/Pages/auth/login";
+import Users from "../src/Pages/Admin/UsersCRUD";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -21,14 +22,17 @@ function App() {
       <NavBar />
       <main>
         <Routes>
+          {/*PAGINAS DE USUARIOS*/}
           <Route path="/" element={<HomeUser />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<HomeAdmin />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Carrito />}></Route>
           <Route path="/us" element={<Us />}></Route>
           <Route path="/blogs" element={<Blog />}></Route>
+          {/*PAGINAS DE ADMIN */}
+          <Route path="/admin" element={<HomeAdmin />} />
+          <Route path="/admin/users" element={<Users/>}/>
           <Route path="/admin/products" element={<ProductsCRUD />}></Route>
           <Route
             path="/admin/products/:id"

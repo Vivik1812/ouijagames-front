@@ -46,6 +46,17 @@ class UserService {
       throw error;
     }
   }
+
+  async deleteUser(id){
+        try{
+            const response = await Axios.delete(`${URL}/${id}`)
+            return response.data
+        }catch(error){
+            console.error("Error:", error);
+            throw error;
+        }
+         
+    }
 }
 
 export default new UserService();

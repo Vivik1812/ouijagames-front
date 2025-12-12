@@ -83,8 +83,7 @@ function HorizontalExample() {
       alert("Inicio de sesión exitoso");
       navigate("/");
     } catch (error) {
-      console.error("Error en handleLogin:", error);
-      alert(
+      throw(
         "Error al iniciar sesión: " + (error.message || "Intenta de nuevo")
       );
     }

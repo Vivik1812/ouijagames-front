@@ -6,6 +6,9 @@ import { Container, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function CardBody({
+  isUser,
+  email,
+  tipo,
   name,
   description,
   price,
@@ -107,6 +110,23 @@ function CardBody({
         </Text>
         <Text variant="p" className="p-5 m-auto">
           {description}
+        </Text>
+      </Container>
+    );
+  }
+  if (isUser) {
+    
+    return (
+      <Container>
+        <Text variant="h3" className="p-2 m-auto">
+          <span>Usuario: </span><br/>
+          {name}
+        </Text>
+        <Text variant="p" className="m-auto">
+          Correo: {email}
+        </Text>
+        <Text variant="p" className="m-auto text-uppercase">
+          Rol: <span className={tipo==='admin'? 'text-danger' : 'text-success'}>{tipo}</span>
         </Text>
       </Container>
     );

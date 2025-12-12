@@ -10,6 +10,7 @@ import CardResumen from "../molecules/CardResumen";
 import ProductService from "../../services/BlogService";
 
 function ProductCard({
+  user,
   blog,
   product,
   isDescription,
@@ -23,7 +24,11 @@ function ProductCard({
   isAdminFun,
   adminFun,
 }) {
-  
+  const rol = () => {
+    if (!user) return null;
+    return user.roles[0].nombre;
+  };
+
   const eliminarProduct = async () => {
     try {
       const confirm = window.confirm("Eliminar?");
@@ -107,25 +112,59 @@ function ProductCard({
             animate ? "m-5 p-3 text-center card-animate" : "m-5 p-3 text-center"
           }
         >
-          <Link
-            to={blog ? `/admin/blogs/${blog.id}` : `/admin/products/${product.id}`}
-            className="h-100"
-          >
-            <Image
-              src={blog ? blog.img : product.img}
-              alt={blog ? blog.titulo : product.name}
-              className="card-img-top h-75"
-            />
-          </Link>
+          {user ? (
+            <>
+              <Image
+                src={"/profile2.webp"}
+                alt={user.username}
+                className="card-img-top h-75"
+              />
+            </>
+          ) : (
+            <>
+              <Link
+                to={
+                  blog
+                    ? `/admin/blogs/${blog.id}`
+                    : `/admin/products/${product.id}`
+                }
+                className="h-100"
+              >
+                <Image
+                  src={blog ? blog.img : product.img}
+                  alt={blog ? blog.titulo : product.name}
+                  className="card-img-top h-75"
+                />
+              </Link>
+            </>
+          )}
+
           <Card.Body>
-            <CardBody
-              name={blog ? blog.titulo : product.name}
-              description={
-                isDescription ? (blog ? blog.texto : product.description) : ""
-              }
-              price={blog ? "" : product.price}
-              src={blog ? blog.img : product.img}
-            />
+            {user ? (
+              <>
+                <CardBody
+                  name={user.username}
+                  email={user.email}
+                  tipo={rol()}
+                  isUser={true}
+                />
+              </>
+            ) : (
+              <>
+                <CardBody
+                  name={blog ? blog.titulo : product.name}
+                  description={
+                    isDescription
+                      ? blog
+                        ? blog.texto
+                        : product.description
+                      : ""
+                  }
+                  price={blog ? "" : product.price}
+                  src={blog ? blog.img : product.img}
+                />
+              </>
+            )}
           </Card.Body>
           <Button variant="outline-danger" onClick={eliminarProduct}>
             {"Eliminar"}
@@ -151,7 +190,9 @@ function ProductCard({
             />
           </Link>
           <Row>
-            <Text variant="h2" className='mb-5'>{adminFun.name}</Text>
+            <Text variant="h2" className="mb-5">
+              {adminFun.name}
+            </Text>
           </Row>
           <Link to={adminFun.link}>
             <Button variant="outline-success">{"Administrar"}</Button>

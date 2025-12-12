@@ -8,7 +8,12 @@ const adminFun = [
         name: "Noticias",
         link: "/admin/blogs",
         img: 'admin.webp'
-    }
+    },
+    {
+        name: "Usuarios",
+        link: "/admin/users",
+        img: 'admin.webp'
+    },
 ]
 
 export default adminFun;

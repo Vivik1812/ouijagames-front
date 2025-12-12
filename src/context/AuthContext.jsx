@@ -17,7 +17,11 @@ export const AuthProvider = ({ children }) => {
   const login = (userData) => {
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
-    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem("isLoggedIn", "true");
+
+    if (user.roles) {
+      localStorage.setItem("userRoles", JSON.stringify(user.roles));
+    }
   };
 
   function logout() {
