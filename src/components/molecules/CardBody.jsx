@@ -16,16 +16,13 @@ function CardBody({
   isBlog,
   isBlogDetail,
   isProductDetailAdmin,
+  fun
 }) {
   const isStock = stock > 0 ? "En Stock" : "Sin stock";
   const className =
     stock > 0
       ? "p-2 text-lg-start text-success"
-      : "p-2 text-lg-start text-danger";
-    
-  
-  console.log(category);
-  
+      : "p-2 text-lg-start text-danger";  
       
   if (isDetail) {
     return (
@@ -50,7 +47,7 @@ function CardBody({
               <></>
             ) : (
               <Col className="col-9 text-lg-start">
-                <Button variant="dark">Agregar al carrito</Button>
+                <Button variant="dark" onClick={fun}>Agregar al carrito</Button>
               </Col>
             )}
           </Row>

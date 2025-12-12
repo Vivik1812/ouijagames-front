@@ -12,17 +12,17 @@ import BlogCRUD from "../src/Pages/Admin/BlogCRUD";
 import BlogDetail from "../src/Pages/Admin/BlogDetail";
 import ProductDetailAdmin from "../src/Pages/Admin/ProductDetail";
 import HomeAdmin from "../src/Pages/Admin/Home";
-import Login from "../src/Pages/auth/login"
+import Login from "../src/Pages/auth/login";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <>
       <NavBar />
-      <main className="ml my-3">
+      <main>
         <Routes>
-          <Route path="/" element={<HomeUser />} />           
-          <Route path="/login" element={<Login />} />           
+          <Route path="/" element={<HomeUser />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<HomeAdmin />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
@@ -30,7 +30,10 @@ function App() {
           <Route path="/us" element={<Us />}></Route>
           <Route path="/blogs" element={<Blog />}></Route>
           <Route path="/admin/products" element={<ProductsCRUD />}></Route>
-          <Route path="/admin/products/:id" element={<ProductDetailAdmin />}></Route>
+          <Route
+            path="/admin/products/:id"
+            element={<ProductDetailAdmin />}
+          ></Route>
           <Route path="/admin/blogs" element={<BlogCRUD />}></Route>
           <Route path="/admin/blogs/:id" element={<BlogDetail />}></Route>
         </Routes>
