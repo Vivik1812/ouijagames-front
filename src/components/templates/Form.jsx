@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useState, useEffect } from "react";
 import CategoryService from "../../services/CategoryService";
-import ProductService from "../../services/BlogService";
+import ProductService from "../../services/ProductService";
 
 
 function Formm({ onClose }) {
