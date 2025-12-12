@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import "../../styles/organisms/ProductCard.css";
 import CartButtons from "../molecules/CartButtons";
 import CardResumen from "../molecules/CardResumen";
-import ProductService from "../../services/ProductServiced";
+import ProductService from "../../services/ProductServices";
 
 function ProductCard({
   user,
